@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzLayout="horizontal">
+    <nz-form-item >
+      <nz-form-control nzErrorTip="请填写用户名!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="其填写密码!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <button nz-button class="login-form-button" [nzType]="'primary'" [nzLoading]="isLoading">登录</button>
+    </nz-form-item>
+  </form>
+</div>
