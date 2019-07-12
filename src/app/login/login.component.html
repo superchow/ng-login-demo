@@ -16,12 +16,12 @@
     </nz-form-item>
     <nz-form-item>
       <button 
-        nz-button 
+        nz-button
         class="login-form-button" 
         type="submit"
         [nzType]="'primary'" 
         [nzLoading]="isLoading"
-        [disabled]="isDisable"
+        [disabled]="!validateForm.valid"
       >登录</button>
     </nz-form-item>
   </form>
