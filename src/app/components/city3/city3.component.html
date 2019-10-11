@@ -1,0 +1,62 @@
+<div ngClass="i-provinceCity" nz-row nzGutter="8">
+  <div nz-col nzSpan="8">
+    <nz-select 
+      [(ngModel)]="province$"
+      (ngModelChange)="provinceChange($event)"
+      name="province$"
+      nzPlaceHolder="省"
+      [nzSize]="nzSize"
+      [nzAllowClear]="nzAllowClear"
+      [nzShowSearch]="nzShowSearch"
+      [nzDisabled]="nzDisabled"
+      (nzFocus)="focus($event)"
+    >
+      <nz-option
+        *ngFor="let item of provinces"
+        [nzLabel]="item.text"
+        [nzValue]="item.value"
+      >
+      </nz-option>
+    </nz-select>
+  </div>
+  <div nz-col nzSpan="8">
+    <nz-select 
+      [(ngModel)]="city$"
+      (ngModelChange)="cityChange($event)"
+      name="city$"
+      nzPlaceHolder="市"
+      [nzSize]="nzSize"
+      [nzAllowClear]="nzAllowClear"
+      [nzShowSearch]="nzShowSearch"
+      [nzDisabled]="nzDisabled"
+      (nzFocus)="focus($event)"
+    >
+      <nz-option
+        *ngFor="let item of cities"
+        [nzLabel]="item.text"
+        [nzValue]="item.value"
+      >
+      </nz-option>
+    </nz-select>
+  </div>
+  <div nz-col nzSpan="8">
+    <nz-select 
+      [(ngModel)]="county$"
+      (ngModelChange)="countyChange($event)"
+      name="county$"
+      nzPlaceHolder="区"
+      [nzSize]="nzSize"
+      [nzAllowClear]="nzAllowClear"
+      [nzShowSearch]="nzShowSearch"
+      [nzDisabled]="nzDisabled"
+      (nzFocus)="focus($event)"
+    >
+      <nz-option
+        *ngFor="let item of counties"
+        [nzLabel]="item.text"
+        [nzValue]="item.value"
+      >
+      </nz-option>
+    </nz-select>
+  </div>
+</div>

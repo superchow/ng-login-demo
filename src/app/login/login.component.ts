@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private eventManager: EventManager,
     private titleSercive: Title,
-  ) { }
+  ) {
+    window[`loginComponent`] = this;
+  }
 
   submitForm(e?: Event): void {
     // Object.keys(this.validateForm.controls).forEach(k => {
@@ -80,10 +82,31 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // https://angular.cn/api/forms/FormBuilder https://angular.cn/api/forms/FormGroup https://angular.cn/api/forms/FormControl
+    // this.validateForm = new FormGroup({
+    //   userName: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]{4,8}$/)]),
+    //   password: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9a-zA-Z]{6,8}$/)]),
+    // }, { updateOn: 'blur' });
+
+    // this.validateForm = this.fb.group({
+    //   userName: new FormControl(null, {
+    //     validators: [Validators.required, Validators.pattern(/^[0-9]{4,8}$/)],
+    //     updateOn: 'blur'
+    //   }),
+    //   password: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9a-zA-Z]{6,8}$/)]),
+    // });
+
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required, this.validataFn(/^[0-9]{4,8}$/)]],
-      password: [null, [Validators.required, this.validataFn(/^[0-9a-zA-Z]{6,8}$/)]],
-    });
+      userName: new FormControl(null, {
+        validators: [Validators.required, Validators.pattern(/^[0-9]{4,8}$/)],
+        updateOn: 'blur'
+      }),
+      password: [null, {
+        validators: [Validators.required, Validators.pattern(/^[0-9a-zA-Z]{6,8}$/)],
+        updateOn: 'submit'
+      }],
+      provinceCity: [null, Validators.required],
+    }, {updateOn: 'submit'});
     // this.validateForm.valueChanges.subscribe({
     //   next: x => {
     //     if (!!x.userName || !!x.password) { this.isDisable = false; }

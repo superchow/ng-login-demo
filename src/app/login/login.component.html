@@ -4,10 +4,10 @@
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event)" nzLayout="horizontal">
       <nz-form-item >
         <nz-form-control [nzErrorTip]="validateForm.controls.userName.errors &&(validateForm.controls.userName.errors.required ? '请填写用户名!' : '用户名格式错误' )">
-            <nz-input-group nzPrefixIcon="user">
-              <input type="text" nz-input formControlName="userName" placeholder="Username" autofocus="autofocus" />
-            </nz-input-group>
-          </nz-form-control>
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Username" autofocus="autofocus" />
+          </nz-input-group>
+        </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-control [nzErrorTip]="validateForm.controls.password.errors &&(validateForm.controls.password.errors.required ? '请填写密码!': '密码格式错误' )">
@@ -17,13 +17,17 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
+        <nz-form-control [nzErrorTip]="validateForm.controls.provinceCity.errors &&(validateForm.controls.provinceCity.errors.invalid ? '请选择!': '？？？' )">
+          <app-city3 formControlName="provinceCity"></app-city3>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
         <button 
           nz-button
           class="login-form-button" 
           type="submit"
           [nzType]="'primary'" 
           [nzLoading]="isLoading"
-          [disabled]="!validateForm.valid"
         >登录</button>
       </nz-form-item>
     </form>
