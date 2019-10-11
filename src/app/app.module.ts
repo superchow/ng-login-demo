@@ -12,6 +12,10 @@ import zh from '@angular/common/locales/zh';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { GuidComponent } from './guid/guid.component';
+import { UseViewChildComponent } from './use-view-child/use-view-child.component';
+import { ChildComponent } from './use-view-child/child.component';
+import { UsePipeComponent } from './use-pipe/use-pipe.component';
+import { City3Module } from './components/city3/city3.module';
 
 registerLocaleData(zh);
 
@@ -20,7 +24,10 @@ registerLocaleData(zh);
     AppComponent,
     LoginComponent,
     MainComponent,
-    GuidComponent
+    GuidComponent,
+    UseViewChildComponent,
+    ChildComponent,
+    UsePipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ registerLocaleData(zh);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    City3Module,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
