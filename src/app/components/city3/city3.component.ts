@@ -42,10 +42,17 @@ const EXE_CITY3_VALUE_ACCESSOR: ExistingProvider = {
 /**
  * 直接提供给provider使用的校验器
  * EXE_CITY3_VALIDATOR
- * @param control FromControl
+ * @param control AbstractControl
  */
 const validateSelectValue: ValidatorFn = (control: AbstractControl): ValidationErrors => {
-  return CITY_REGEXPS.some(reg => reg.test(control.value)) ? null : { invalid: true };
+  if (control.touched) {
+    const reg = CITY_REGEXPS[2];
+    if (control.value) {
+      return reg.test(control.value) ? null : { invalid: true };
+    } else {
+      return null;
+    }
+  }
 };
 /**
  * provider 默认校验使用的方式

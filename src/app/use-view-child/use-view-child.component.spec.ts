@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UseViewChildComponent } from './use-view-child.component';
+import { Component } from '@angular/core';
+
+@Component({selector: 'exe-child', template: ''})
+class ChildComponent {}
 
 describe('UseViewChildComponent', () => {
   let component: UseViewChildComponent;
@@ -8,7 +12,7 @@ describe('UseViewChildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UseViewChildComponent ]
+      declarations: [ UseViewChildComponent, ChildComponent ]
     })
     .compileComponents();
   }));

@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     public router: Router,
     private fb: FormBuilder,
     private eventManager: EventManager,
-    private titleSercive: Title,
   ) {
     window[`loginComponent`] = this;
   }

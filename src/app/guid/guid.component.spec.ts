@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GuidComponent } from './guid.component';
+import { Component } from '@angular/core';
+
+@Component({selector: 'app-login', template: ''})
+class LoginComponent {}
 
 describe('GuidComponent', () => {
   let component: GuidComponent;
@@ -8,7 +12,7 @@ describe('GuidComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuidComponent ]
+      declarations: [ GuidComponent, LoginComponent ]
     })
     .compileComponents();
   }));
