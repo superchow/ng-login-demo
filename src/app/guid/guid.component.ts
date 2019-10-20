@@ -19,7 +19,7 @@ export class GuidComponent implements OnInit {
 
   btnClick(): void {
     if (this.LoginRef) {
-      this.LoginRef.validateForm.setValue({
+      this.LoginRef.validateForm.patchValue({
         userName: '123456',
         password: 'abc123'
       });
