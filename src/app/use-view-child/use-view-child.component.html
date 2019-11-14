@@ -2,9 +2,10 @@
 <p #greet>use-view-child works!</p>
 
 <h2>template</h2>
-<template #tpl>
+<ng-template #tpl>
   <span>这是template区</span>
-</template>
+  <exe-child></exe-child>
+</ng-template>
 <h2>exe-child</h2>
 <exe-child></exe-child>
 <exe-child></exe-child>

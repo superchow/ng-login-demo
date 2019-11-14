@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ChildComponent {
   name: string = 'child-compent';
+
+  public get test(): string {
+    return this.name;
+  }
+
 }

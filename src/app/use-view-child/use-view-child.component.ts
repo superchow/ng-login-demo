@@ -20,10 +20,12 @@ export class UseViewChildComponent implements OnInit, AfterViewInit {
   @ViewChild('greet', {static: false}) greetP: ElementRef;
   @ViewChild('tpl', {static: false}) tplRef: TemplateRef<any>;
   @ViewChild('tpl', {read: ViewContainerRef, static: false }) tplVcRef: ViewContainerRef;
-  @ViewChild(ChildComponent, {static: true}) childCmp: ChildComponent;
+  @ViewChild(ChildComponent, {static: false}) childCmp: ChildComponent;
   @ViewChildren(ChildComponent) childCmps: QueryList<ChildComponent>;
 
-  constructor() { }
+  constructor() {
+    window[`UseViewChildComponent`] = this;
+  }
 
   ngOnInit() {
 
