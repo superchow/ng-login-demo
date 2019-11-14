@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GuidComponent } from './guid.component';
-import { Component } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgZorroAntdModule, NzIconModule } from 'ng-zorro-antd';
+import { CommonModule } from '@angular/common';
 
-@Component({selector: 'app-login', template: ''})
-class LoginComponent {}
 
 describe('GuidComponent', () => {
   let component: GuidComponent;
@@ -12,7 +13,17 @@ describe('GuidComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuidComponent, LoginComponent ]
+      declarations: [ GuidComponent, LoginComponent ],
+      imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NzIconModule,
+        NgZorroAntdModule,
+      ],
+      providers: [
+        FormBuilder,
+      ]
     })
     .compileComponents();
   }));
@@ -22,8 +33,7 @@ describe('GuidComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+  it('GuidComponent should be created', () => {
     expect(component).toBeTruthy();
   });
 });

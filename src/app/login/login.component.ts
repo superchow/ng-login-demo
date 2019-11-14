@@ -96,26 +96,29 @@ export class LoginComponent implements OnInit, OnDestroy {
     // });
 
     this.validateForm = this.fb.group({
-      userName: new FormControl(null, {
+      userName: new FormControl({
+        value: null,
+        disabled: true
+      }, {
         validators: [Validators.required, Validators.pattern(/^[0-9]{4,8}$/)],
-        updateOn: 'blur'
+        updateOn: 'change'
       }),
       password: [null, {
         validators: [Validators.required, Validators.pattern(/^[0-9a-zA-Z]{6,8}$/)],
         updateOn: 'submit'
       }],
       provinceCity: [null, Validators.required],
-    }, {updateOn: 'submit'});
+    }, {updateOn: 'change'});
     // this.validateForm.valueChanges.subscribe({
     //   next: x => {
     //     if (!!x.userName || !!x.password) { this.isDisable = false; }
     //   }
     // });
     this.validateForm.patchValue({});
-    console.log(this.validateForm);
-    this.attEventFn = this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
-      this.submitForm();
-    });
+    // console.log(this.validateForm);
+    // this.attEventFn = this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
+    //   this.submitForm();
+    // });
   }
 
   ngOnDestroy(): void {
